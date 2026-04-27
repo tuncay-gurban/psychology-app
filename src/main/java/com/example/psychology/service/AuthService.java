@@ -2,6 +2,7 @@ package com.example.psychology.service;
 
 import com.example.psychology.dto.AuthResponse;
 import com.example.psychology.dto.LoginRequest;
+import com.example.psychology.dto.RegisterPsychologistRequest;
 import com.example.psychology.dto.RegisterRequest;
 import com.example.psychology.entity.Role;
 import com.example.psychology.entity.User;
@@ -51,6 +52,31 @@ public class AuthService {
                  .role(user.getRole())
                  .build();
      }
+
+     //Register Psixoloq ucun
+    public  AuthResponse registerPsychologist(RegisterPsychologistRequest request){
+        if (userRepository.existsByEmail(request.getEmail())) {
+            throw new RuntimeException("Bu email artıq qeydiyyatdan keçib");
+        }
+
+        User psychologist = User.builder()
+                .email(request.getEmail())
+                .password(passwordEncoder.encode(request.getPassword()))
+                .name(request.getName())
+                .role(Role.PSYCHOLOGIST)
+                .build();
+
+        userRepository.save(psychologist);
+
+        String token = jwtService.generateToken(psychologist.getEmail());
+
+        return AuthResponse.builder()
+                .token(token)
+                .email(psychologist.getEmail())
+                .role(psychologist.getRole())
+                .build();
+    }
+
 
      // Login
     public AuthResponse login(LoginRequest request){
