@@ -2,7 +2,6 @@ package com.example.psychology.controller;
 
 import com.example.psychology.dto.AuthResponse;
 import com.example.psychology.dto.LoginRequest;
-import com.example.psychology.dto.RegisterPsychologistRequest;
 import com.example.psychology.dto.RegisterRequest;
 import com.example.psychology.service.AuthService;
 import jakarta.validation.Valid;
@@ -22,12 +21,6 @@ public class AuthController {
     @PostMapping("/register")
     public ResponseEntity<AuthResponse> register(@Valid @RequestBody RegisterRequest request) {
         AuthResponse response = authService.register(request);
-        return ResponseEntity.ok(response);
-    }
-
-    @PostMapping("/register-psychologist")
-    public ResponseEntity<AuthResponse> registerPsychologist(@Valid @RequestBody RegisterPsychologistRequest request){
-        AuthResponse response = authService.registerPsychologist(request);
         return ResponseEntity.ok(response);
     }
 
