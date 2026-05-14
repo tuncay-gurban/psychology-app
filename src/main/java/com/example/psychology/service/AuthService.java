@@ -3,7 +3,7 @@ package com.example.psychology.service;
 import com.example.psychology.dto.AuthResponse;
 import com.example.psychology.dto.LoginRequest;
 import com.example.psychology.dto.RegisterRequest;
-import com.example.psychology.entity.Role;
+import com.example.psychology.util.enums.Role;
 import com.example.psychology.entity.User;
 import com.example.psychology.repository.UserRepository;
 import com.example.psychology.security.JwtService;

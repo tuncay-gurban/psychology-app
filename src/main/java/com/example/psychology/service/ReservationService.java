@@ -8,6 +8,7 @@ import com.example.psychology.exception.ResourceNotFoundException;
 import com.example.psychology.repository.PsychologistRepository;
 import com.example.psychology.repository.ReservationRepository;
 import com.example.psychology.repository.UserRepository;
+import com.example.psychology.util.enums.ReservationStatus;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;

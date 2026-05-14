@@ -1,6 +1,6 @@
 package com.example.psychology.dto;
 
-import com.example.psychology.entity.Role;
+import com.example.psychology.util.enums.Role;
 import lombok.*;
 
 @Getter

@@ -2,7 +2,7 @@ package com.example.psychology.service;
 
 import com.example.psychology.dto.CreatePsychologistRequest;
 import com.example.psychology.entity.Psychologist;
-import com.example.psychology.entity.Role;
+import com.example.psychology.util.enums.Role;
 import com.example.psychology.entity.User;
 import com.example.psychology.exception.DuplicateResourceException;
 import com.example.psychology.exception.ResourceNotFoundException;

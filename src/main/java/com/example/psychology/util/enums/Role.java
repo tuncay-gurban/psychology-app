@@ -1,4 +1,4 @@
-package com.example.psychology.entity;
+package com.example.psychology.util.enums;
 
 public enum Role {
     USER,

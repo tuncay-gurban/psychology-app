@@ -1,6 +1,6 @@
 package com.example.psychology.config;
 
-import com.example.psychology.entity.Role;
+import com.example.psychology.util.enums.Role;
 import com.example.psychology.entity.User;
 import com.example.psychology.repository.UserRepository;
 import lombok.RequiredArgsConstructor;

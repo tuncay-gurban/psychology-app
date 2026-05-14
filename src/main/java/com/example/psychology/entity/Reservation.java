@@ -1,5 +1,6 @@
 package com.example.psychology.entity;
 
+import com.example.psychology.util.enums.ReservationStatus;
 import jakarta.persistence.*;
 import lombok.*;
 

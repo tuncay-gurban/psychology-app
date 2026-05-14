@@ -4,11 +4,14 @@ import com.example.psychology.dto.VacancyRequest;
 import com.example.psychology.dto.VacancyResponse;
 import com.example.psychology.service.VacancyService;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.PositiveOrZero;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
+@Validated
 @RestController
 @RequestMapping("/api/vacancies")
 @RequiredArgsConstructor
@@ -23,8 +26,8 @@ public class VacancyController {
 
     @GetMapping
     public ResponseEntity<Page<VacancyResponse>> getAll(
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "10") int size,
+            @RequestParam(defaultValue = "0") @PositiveOrZero int page,
+            @RequestParam(defaultValue = "10") @Positive int size,
             @RequestParam(required = false) String search,
             @RequestParam(required = false) Boolean active) {
         return ResponseEntity.ok(vacancyService.getAll(page, size, search, active));
